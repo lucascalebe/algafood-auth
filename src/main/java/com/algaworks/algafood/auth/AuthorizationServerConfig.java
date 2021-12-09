@@ -35,6 +35,16 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                     .refreshTokenValiditySeconds(60  * 24 * 60 * 60)
 
                 .and()
+                    .withClient("foodanalytics")
+                    .secret(passwordEncoder.encode("food123"))
+                    .authorizedGrantTypes("authorization_code")
+                    .scopes("write","read")
+                    .redirectUris("http://aplicacao-cliente")
+        //http://localhost:8081/oauth/authorize?response_type=code&client_id=foodanalytics&state=abc&redirect_uri=http://aplicacao-cliente
+        //colar no browser que retorna um code
+        //pegar o code fazer requisicao no postman com body -> code,grant_type e redirect_url
+
+                .and()
                     .withClient("faturamento")
                     .secret(passwordEncoder.encode("faturamento123"))
                     .authorizedGrantTypes("client_credentials")
