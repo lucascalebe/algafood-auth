@@ -45,8 +45,16 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                     .scopes("write","read")
                     .redirectUris("http://www.foodanalytics.local:8082")
 
-                //http://localhost:8081/oauth/authorize?response_type=code&client_id=foodanalytics&redirect_uri=http://www.foodanalytics.local:8082&code_challenge=teste123&code_challenge_method=plain
-                // no postman passar params, code, grant_type,redirect_uri,code_verifier e client_id
+                //code verifier: DNJZF.G-kh1niuSHB4T.iiVj~XQOPlTN7y2fABXN8FWkPYo2c_wtRxYi3zIbFbjENc2CqtQkM1eBrQZUX1xlZtOqC
+                        //Tyu_bZy5Ur95Bq.Xf_IsI~M.9hEP_o7pY65AKQu
+
+                //code challenge: F7jhOWAeagqibL1kbTph2hw9KcWa-zmksdTXNz7ehQY
+
+                //http://localhost:8081/oauth/authorize?response_type=code&client_id=foodanalytics&redirect_uri=http://www.food
+                    // analytics.local:8082&code_challenge=F7jhOWAeagqibL1kbTph2hw9KcWa-zmksdTXNz7ehQY&code_challenge_method=s256
+
+
+
 
                 .and()
                 .withClient("webadmin")
