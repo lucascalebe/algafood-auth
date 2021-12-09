@@ -39,7 +39,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                     .secret(passwordEncoder.encode("food123"))
                     .authorizedGrantTypes("authorization_code")
                     .scopes("write","read")
-                    .redirectUris("http://aplicacao-cliente")
+                    .redirectUris("http://www.foodanalytics.local:8082")
         //http://localhost:8081/oauth/authorize?response_type=code&client_id=foodanalytics&state=abc&redirect_uri=http://aplicacao-cliente
         //colar no browser que retorna um code
         //pegar o code fazer requisicao no postman com body -> code,grant_type e redirect_url
