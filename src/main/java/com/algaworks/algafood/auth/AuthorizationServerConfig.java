@@ -40,9 +40,18 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                     .authorizedGrantTypes("authorization_code")
                     .scopes("write","read")
                     .redirectUris("http://www.foodanalytics.local:8082")
-        //http://localhost:8081/oauth/authorize?response_type=code&client_id=foodanalytics&state=abc&redirect_uri=http://aplicacao-cliente
+        //http://localhost:8081/oauth/authorize?response_type=code&client_id=foodanalytics&state=abc&redirect_uri=http://www.foodanalytics.local:8082
         //colar no browser que retorna um code
-        //pegar o code fazer requisicao no postman com body -> code,grant_type e redirect_url
+        //pegar o code fazer requisicao no postman com body -> code,grant_type e redirect_uri
+
+
+                .and()
+                .withClient("webadmin")
+                .authorizedGrantTypes("implicit")
+                .scopes("write","read")
+                .redirectUris("http://aplicacao-cliente")
+                //http://localhost:8081/oauth/authorize?response_type=token&client_id=webadmin&state=abc&redirect_uri=http://aplicacao-cliente
+                //ja retorna access token na url.
 
                 .and()
                     .withClient("faturamento")
