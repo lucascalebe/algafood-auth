@@ -45,6 +45,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                     .scopes("write","read")
                     .redirectUris("http://www.foodanalytics.local:8082")
 
+                //http://localhost:8081/oauth/authorize?response_type=code&client_id=foodanalytics&redirect_uri=http://www.foodanalytics.local:8082&code_challenge=teste123&code_challenge_method=plain
+                // no postman passar params, code, grant_type,redirect_uri,code_verifier e client_id
 
                 .and()
                 .withClient("webadmin")
@@ -67,7 +69,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
 //        security.checkTokenAccess("isAuthenticated()");
-        security.checkTokenAccess("permitAll()");
+        security.checkTokenAccess("permitAll()")
+                .allowFormAuthenticationForClients();
     }
 
     @Override
